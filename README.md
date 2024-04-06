@@ -96,6 +96,14 @@ df = cot.cot_all(cot_report_type='legacy_fut')
 # cot_all() downloads the historical bulk file and all remaining single year files of the specified report type.  Returns the data as dataframe.
 ```
 
+- ***set_session(session)*** pass-through your own session for `cot_reports` to use instead of `requests`:
+```python
+import cot_reports as cot
+import requests_cache
+cot.set_session(requests_cache.CachedSession("cot_reports.cache"))
+df = cot.cot_hist(...)
+```
+
 ## Introduction to the COT reports
 
 To promote its goals of integrity, resilience and vibrancy of the U.S. derivatives markets through regulation, the U.S. Commodity Futures Trading Commission (CFTC) relies on collected data to conduct its functions. The CFTC's functions:
